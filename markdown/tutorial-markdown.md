@@ -1,7 +1,7 @@
 # Título
 Práctica de comandos para escritura en markdown
 ## subtítulo
-Uso de comandos mas comunes
+Uso de comandos más comunes
 ### Cita 
 > "Ya sé escribir en markdown".  — autor desconocido
 ### Listas
@@ -13,6 +13,7 @@ Ejemplo de lista sin numerar:
 		+ subnodo 212
 	* subnodo 22
 * nodo 3
+
 Ejemplo de lista numerada
 1. nodo a
 	1. subnodo
@@ -39,7 +40,7 @@ Ejemplo de codigo preformateados:
 
 	npm install
 ### Enlaces
-Ejemplo de [link inline](google.com)
+Ejemplo de [link inline](https://www.google.com)
 
 Ejemplo de [link de referencia][mienlace]
 
