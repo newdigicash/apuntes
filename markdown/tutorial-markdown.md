@@ -28,7 +28,9 @@ Texto dentro de un bloque
 ___
 ### Formato
 Texto en *cursiva* y este _también_
+
 Texto en **negritra** y este __también__
+
 Texto en ***negritra y cusiva***
 ### Código
 Ejemplo de codigo inline `npm install` 
@@ -36,19 +38,38 @@ Ejemplo de codigo inline `npm install`
 Ejemplo de codigo preformateados:
 
 	npm install
-### Enlances
+### Enlaces
 Ejemplo de [link inline](google.com)
+
 Ejemplo de [link de referencia][mienlace]
+
 Ejemplo de link explícito <https://google.com>
+### Tablas
+Tabla simple
+
+Izquierda | Derecha
+-- | --
+Op | Op
+
+Tabla alineada
+
+Izquierda | Derecha
+:-- | :--:
+1 | contenido
+2 | centrado
 ### Imágenes
 Ejemplo de imagen inline:
 ![texto alternativo](https://via.placeholder.com/100x50 "texto para hover")
 
 Ejemplo de imagen de referencia: 
+
 ![alternativo][urlImagen]
 ## Bibliografía:
 Tutorial de markdown <https://markdown.es/sintaxis-markdown/>
+
 Editor de markdown online <https://dillinger.io/>
+
+Cheatsheet <https://joedicastro.com/pages/markdown.html>
 
 [//]: # (aqui van las referencias)
 [mienlace]: https://github.com
