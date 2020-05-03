@@ -32,7 +32,7 @@ Cmd | Descripción
 `git merge _rama_` | fusiona rama actual a \_rama_
 `git rebase _rama_` | base de rama actual a \_rama_ 
 `git checkout HEAD^` | ref. relativa, revisa el commit anterior
-`git branch -f _rama_ HEAD~numero` | mueve la ram n veces atras
+`git branch -f _rama_ HEAD~numero` | mueve la rama n veces atras
 `git reset HEAD~1` | regresa al commit anterior **solo repo local**
 `git revert HEAD` | commit nuevo sin aplicar ultimo anterior  en **remoto**
 `git cherry-pick c1 c2... ` | copia los n commits a la rama actual
