@@ -5,7 +5,7 @@ Resumen de comandos más usados de git
 ### Autor
 @newdigicash
 ### Versión
-0.2
+0.3
 
 ## 2. Observación
 
@@ -19,25 +19,25 @@ Listado de comandos
 Cmd | Descripción
 :-- | :--
 `git clone _url-publica_` | descarga repo en carpeta actual
-`git clone _url-publica_ _dir_local_` | descarga repo en carpeta nueva
-`git pull` | descarga el ultimo commit de rama actual
+`git clone _url-publica_ _dir-local_` | descarga repo en carpeta nueva
+`git pull` | descarga el último commit de rama actual
 `git status` | muestra cambios repo local
 `git add *` | agrega cambios index repo local
 `git commit -m "mensaje"` | guarda cambios repo local
-`git push origin master` | guarda cambios repo remoto 
+`git push origin master` | guarda cambios en rama repo remoto 
 `git branch _rama_` | crea una rama
 `git checkout _rama_` | cambia de rama
 `git checkout -b _rama_` | crea y cambia a la rama nueva
 `git branch -d _rama_` | borra una rama
-`git merge _rama_` | fusiona rama actual a \_rama_
-`git rebase _rama_` | base de rama actual a \_rama_ 
+`git merge _rama_` | fusiona \_rama_ a la rama actual
+`git rebase _rama_` | commit a _rama_ copiando de rama actual
 `git checkout HEAD^` | ref. relativa, revisa el commit anterior
-`git branch -f _rama_ HEAD~numero` | mueve la rama n veces atras
+`git branch -f _rama_ HEAD~numero` | mueve la rama n veces atrás
 `git reset HEAD~1` | regresa al commit anterior **solo repo local**
-`git revert HEAD` | commit nuevo sin aplicar ultimo anterior  en **remoto**
+`git revert HEAD` | commit nuevo sin aplicar último commit en **remoto**
 `git cherry-pick c1 c2... ` | copia los n commits a la rama actual
-`git rebase -i HEAD~numero` | seleccion commits y copia desde head actual
-`git tag _tag_ _commit_` | asigna etiqueta a commit donde esta HEAD
+`git rebase -i HEAD~numero` | selecciona commits y copia desde head actual
+`git tag _tag_ _commit_` | asigna etiqueta al commit donde esta HEAD
 `git describe _rama_` | muestra info de tag_commits_hash de rama o HEAD
 
 ## 4. Fuentes

@@ -8,7 +8,7 @@ Hay un [tutorial][tutoBasico] básico [aquí][tutoBasico] para crear, ejecutar y
 ### Autor
 @newdigicash
 ### Versión
-0.1
+0.2
 
 ## 2. Observación
 
@@ -43,6 +43,10 @@ END
 $$;
 ~~~
 Si es necesario hay que redondear el parámetro decimal.
+
+Para ejecutar la función
+
+	SELECT fn_ejemplo(1, '2020-02-01', 12.3456);
 
 ## 4. Fuentes
 Doc oficial <https://www.postgresql.org/docs/11/sql-createfunction.html>

@@ -34,9 +34,9 @@ Texto en **negritra** y este __también__
 
 Texto en ***negritra y cusiva***
 ### Código
-Ejemplo de codigo inline `npm install` 
+Ejemplo de código inline `npm install` 
 
-Ejemplo de codigo preformateados:
+Ejemplo de código preformateado:
 
 	npm install
 ### Enlaces
