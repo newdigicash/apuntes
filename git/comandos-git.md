@@ -18,7 +18,7 @@ Listado de comandos
 
 Cmd | Descripción
 :-- | :--
-`git config --global user.name "nombre"` | asgina el nombre de usuario global
+`git config --global user.name "nombre"` | asigna el nombre de usuario global
 `git config --global user.email correo` | asigna email global
 `git clone _url-publica_` | descarga repo en carpeta actual
 `git clone _url-publica_ _dir-local_` | descarga repo en carpeta nueva

@@ -2,7 +2,7 @@
 La implementación de la interfaz [StoredProcedureQuery en Hibernate][urlHibernate] permite 
 ejecutar funciones en la base de datos con parámetros y recibir una respuesta.
 
-En este [tutorial][urlEjemplo] hay un ejemplo con parámetros de entrada y salida.  
+En este [tutorial][urlEjemplo] hay un ejemplo con parámetros de entrada y salida. 
 Además [aqui][urlEjmplos] hay [varios ejemplos][urlEjmplos].
 
 ## 1. Metadatos
