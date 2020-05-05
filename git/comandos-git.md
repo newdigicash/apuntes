@@ -1,18 +1,23 @@
 # Comandos de Git
 Resumen de comandos más usados de git
+
+Para crear un repositorio y clonarlo, revisar [este enlace][gitInicio]. 
+Hay una [guia genial][gitTutorial] de comandos [aquí][gitTutorial].  
+
+[Tutorial interactivo][gitInteractivo] sobre ramas [aquí][gitInteractivo]. 
+La explicación de las [diferencias entre fetch+merge y pull][gitPull] está [aquí][gitPull].
 ## 1. Metadatos
 
 ### Autor
 @newdigicash
 ### Versión
-0.3
+0.4
 
 ## 2. Observación
+En proyectos pequeños está bien usar el comando **git pull**. 
+Mientras que en proyectos grandes es mejor usar **git fetch**, 
+revisar los cambios, y luego unir con **git merge**.
 
-Para crear un repositorio y clonarlo, revisar [este enlace][gitInicio]. 
-Hay una [guia][gitTutorial] genial de comandos [aquí][gitTutorial]
-
-[Tutorial interactivo][gitInteractivo] sobre ramas [aquí][gitInteractivo]
 ## 3. Contenido 
 Listado de comandos
 
@@ -22,12 +27,16 @@ Cmd | Descripción
 `git config --global user.email correo` | asigna email global
 `git clone _url-publica_` | descarga repo en carpeta actual
 `git clone _url-publica_ _dir-local_` | descarga repo en carpeta nueva
-`git pull` | descarga el último commit de rama actual
+`git fetch`  | descarga cambios remoto en rama oculta **origin/master**
+`git merge origin/master` | fusiona cambios de **origin/master** con rama actual
+`git pull` | descarga el último commit. alias de **git fetch \+ git merge**
+`git remote -v` | muestra todos los repos remotos
 `git status` | muestra cambios repo local
 `git add *` | agrega cambios index repo local
 `git commit -m "mensaje"` | guarda cambios repo local
 `git push origin master` | guarda cambios en rama repo remoto 
 `git branch _rama_` | crea una rama
+`git branch -a` | muestra todas la ramas locales
 `git checkout _rama_` | cambia de rama
 `git checkout -b _rama_` | crea y cambia a la rama nueva
 `git branch -d _rama_` | borra una rama
@@ -51,3 +60,4 @@ Configuración inicial: <https://git-scm.com/book/en/v2/Getting-Started-First-Ti
 [gitInicio]: https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
 [gitTutorial]: https://rogerdudler.github.io/git-guide/index.es.html
 [gitInteractivo]: https://learngitbranching.js.org/?locale=es_ES
+[gitPull]: https://blog.artegrafico.net/git-fetch-y-git-pull-diferencias-y-formas-de-uso

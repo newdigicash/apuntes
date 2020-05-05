@@ -24,10 +24,11 @@ Este archivo está sujeto a cambios
 Cmd | Descripción
 :-- | :--
 `ls -la ruta` | mestra todos los archivos y permisos
-`netstat -ntlp | grep LISTEN` | para ver los puertos abiertos 
+`netstat -ntlp` \| `grep LISTEN` | para ver los puertos abiertos 
 `nc -vz host puerto` | escanea los puertos
 `kill -9 PID` | mata un proceso por id
 `lsof -i :80` | lista archivos asociados al puerto
+`rm -rf carpeta` | elimina la carpeta y contenido
 
 ### 3.2 Ejemplos de uso
 Escaneo de puertos 
