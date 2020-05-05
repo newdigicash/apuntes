@@ -18,6 +18,8 @@ Listado de comandos
 
 Cmd | Descripción
 :-- | :--
+`git config --global user.name "nombre"` | asgina el nombre de usuario global
+`git config --global user.email correo` | asigna email global
 `git clone _url-publica_` | descarga repo en carpeta actual
 `git clone _url-publica_ _dir-local_` | descarga repo en carpeta nueva
 `git pull` | descarga el último commit de rama actual
@@ -42,6 +44,8 @@ Cmd | Descripción
 
 ## 4. Fuentes
 Libro de git: <https://git-scm.com/book/en/v2>
+
+Configuración inicial: <https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup>
 
 [//]: # (referencias citadas)
 [gitInicio]: https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository

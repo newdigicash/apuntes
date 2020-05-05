@@ -32,7 +32,7 @@ Cmd | Descripción
 `db.productos.find().pretty()` | muestra todos los datos de *productos*
 `db.productos.find().limit(num)` | obtiene *num* registros desde *productos*
 `db.productos.find().sort({campo: 1})` | ordena por *campo*. 1 ascendente -1 descendente
-`db.productos.drop()` | elimina coleción *productos*
+`db.productos.drop()` | elimina colección *productos*
 `db.dropDatabase()` | elimina la base
 
 ### 3.2 Ejemplos de Uso
@@ -59,7 +59,7 @@ db.productos.deleteOne({ "id":"1"})
 
 Buscar y filtrar
 ~~~
-db.productos.find({"valor":15}) #match exacton
+db.productos.find({"valor":15}) #match exacto
 db.productos.find({"valor": {$lt: 16} }) #match con menor que
 db.productos.find({"valor": {$gte: 15}, "valor": {$lte: 21} }) #match AND  15<=valor<=21
 db.productos.find({ $or: [{"valor": 15}, {"valor": 20}] }) #match OR valor=15 o valor=20
