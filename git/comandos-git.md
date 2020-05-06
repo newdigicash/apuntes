@@ -37,9 +37,10 @@ Cmd | Descripción
 `git push origin master` | guarda cambios en rama repo remoto 
 `git branch _rama_` | crea una rama
 `git branch -a` | muestra todas las ramas locales
+`git log --all --graph --decorate --oneline` | listado de commits de todas ramas
 `git checkout _rama_` | cambia de rama
 `git checkout -b _rama_` | crea y cambia a la rama nueva
-`git branch -d _rama_` | borra una rama
+`git branch -D _rama_` | borra una rama
 `git merge _rama_` | fusiona \_rama_ a la rama actual
 `git rebase _rama_` | commit a _rama_ copiando de rama actual
 `git checkout HEAD^` | ref. relativa, revisa el commit anterior

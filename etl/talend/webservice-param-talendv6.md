@@ -14,7 +14,7 @@ Este archivo está sujeto a cambios
 
 ## 3. Contenido 
 El componente tJava permite agregar código nativo. 
-Se puede usar para [generar la fecha de sistema][linkGenerador] y asignar a las variables de contexto.
+Se puede usar para [generar la fecha del sistema][linkGenerador] y asignar a las variables de contexto.
 
 Una vez probador el Job, hay que exportar como web service. 
 Todos los subjobs deben estar interconectados.
@@ -29,4 +29,4 @@ Tutorial de Talend <https://community.talend.com/t5/custom/page/page-id/Tutorial
 
 [//]: # (referencias citadas)
 [linkTalend]: https://community.talend.com/t5/custom/page/page-id/Tutorials
-[linkGenerador]: https://github.com/newdigicash/apuntes/etl/talend/GeneraFecha.java
+[linkGenerador]: https://github.com/newdigicash/apuntes/blob/master/etl/talend/GeneraFecha.java
