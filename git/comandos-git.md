@@ -36,7 +36,7 @@ Cmd | Descripción
 `git commit -m "mensaje"` | guarda cambios repo local
 `git push origin master` | guarda cambios en rama repo remoto 
 `git branch _rama_` | crea una rama
-`git branch -a` | muestra todas la ramas locales
+`git branch -a` | muestra todas las ramas locales
 `git checkout _rama_` | cambia de rama
 `git checkout -b _rama_` | crea y cambia a la rama nueva
 `git branch -d _rama_` | borra una rama

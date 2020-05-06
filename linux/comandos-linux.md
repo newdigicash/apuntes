@@ -13,7 +13,7 @@ Hay una [consola para explicar los comandos][cmdShell] y sus parámetros [aquí]
 ### Autor
 @newdigicash
 ### Versión
-0.1
+0.2
 
 ## 2. Observación
 
@@ -23,11 +23,11 @@ Este archivo está sujeto a cambios
 ### 3.1 Comandos
 Cmd | Descripción
 :-- | :--
-`ls -la ruta` | mestra todos los archivos y permisos
+`ls -la ruta` | muestra todos los archivos y permisos
 `netstat -ntlp` \| `grep LISTEN` | para ver los puertos abiertos 
 `nc -vz host puerto` | escanea los puertos
 `kill -9 PID` | mata un proceso por id
-`lsof -i :80` | lista archivos asociados al puerto
+`lsof -i :puerto` | lista archivos asociados al puerto
 `rm -rf carpeta` | elimina la carpeta y contenido
 
 ### 3.2 Ejemplos de uso
