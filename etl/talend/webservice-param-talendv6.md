@@ -1,4 +1,4 @@
-# Ejecutar un job de Talend 6.0 DI con parámetros 
+# Ejecutar un job de Talend DI 6.0 con parámetros 
 Indicaciones de cómo ejecutar un job de Talend con parámetros
 ## 1. Metadatos
 
@@ -6,17 +6,19 @@ Indicaciones de cómo ejecutar un job de Talend con parámetros
 @newdigicash
 
 ### Versión
-0.1
+0.2
 
 ## 2. Observación
 
-Este archivo está sujeto a cambios
+Falta revisar si Talend DI actual permite exportar como war y 
+ejecutarlo en tomcat porque en talend 6.0 si se puede.
 
 ## 3. Contenido 
-El componente tJava permite agregar código nativo. 
-Se puede usar para [generar la fecha del sistema][linkGenerador] y asignar a las variables de contexto.
+El [componente tJava][linkTjava] permite agregar código nativo. 
+Se puede usar para [generar la fecha del sistema][linkGenerador] y asignar 
+a las variables de contexto.
 
-Una vez probador el Job, hay que exportar como web service. 
+Una vez probado el Job, hay que exportar como web service. 
 Todos los subjobs deben estar interconectados.
 
 Para probar el web service pasando parámetros por la url 
@@ -25,8 +27,11 @@ http://localhost:8080/Pruebas_0.1/services/Pruebas?method=runJob&arg1=--context_
 ~~~
 
 ## 4. Fuentes
-Tutorial de Talend <https://community.talend.com/t5/custom/page/page-id/Tutorials>
+Tutoriales de Talend <https://community.talend.com/t5/custom/page/page-id/Tutorials>
+
+Doc de Tjava <https://help.talend.com/reader/wDRBNUuxk629sNcI0dNYaA/sSh_6LAVLHtLJc5jL6e21Q>
 
 [//]: # (referencias citadas)
 [linkTalend]: https://community.talend.com/t5/custom/page/page-id/Tutorials
 [linkGenerador]: https://github.com/newdigicash/apuntes/blob/master/etl/talend/GeneraFecha.java
+[linkTjava]: https://help.talend.com/reader/wDRBNUuxk629sNcI0dNYaA/sSh_6LAVLHtLJc5jL6e21Q

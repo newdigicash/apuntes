@@ -33,7 +33,7 @@ sudo keytool -genkey -alias dominio.com -keyalg RSA -keystore mikey.jks -keysize
 sudo keytool -certreq -alias dominio.com -keystore mikey.jks -file dominio.com.csr
 ~~~
 
-Al final se obtiene _mikey.jks_, _dominio.com.csr_ que es la clave privada, 
+Al final se obtiene _mikey.jks_, _dominio.com.csr_ que es la llave privada, 
 la passphrase de al menos 6 caracteres, y el alias _dominio.com_.
 
 ## 4. Fuentes
