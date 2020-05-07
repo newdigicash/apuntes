@@ -6,7 +6,7 @@ Una [alternativa][tutoSftp] para transferir archivos es [SFTP][tutoSftp].
 ## 1. Metadatos
 
 ### Autor
-@newigicash
+@newdigicash
 ### Versión
 0.1
 
