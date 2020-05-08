@@ -11,7 +11,7 @@ Aquí hay otro [tutorial para configurar Node][urlTutoNode].
 ### Autor
 @newdigicash
 ### Versión
-0.1
+0.2
 
 ## 2. Observación
 
@@ -38,6 +38,7 @@ Cmd | Descripción
 `docker start id-contenedor` | arranca el contenedor
 `docker stop id-contenedor` | detiene el contenedor
 `docker attach id-contenedor` | ingresa al contenedor
+`docker cp archivo id-contenedor:ruta` | [Copia][urlTutoCp] _archivo_ a carpeta del contenedor
 `docker container stop nombre-contenedor` | detiene el contenedor por nombre
 `docker container rm nombre-contenedor` | borra contenedor por nombre
 `docker rmi id-imagen` | borra la imagen
@@ -114,6 +115,8 @@ Doc comando run <https://docs.docker.com/engine/reference/run/>
 
 Doc dockerfile <https://docs.docker.com/engine/reference/builder/>
 
+Dock comando cp <https://docs.docker.com/engine/reference/commandline/cp/>
+
 Tutorial de docker <https://www.youtube.com/playlist?list=PLCTD_CpMeEKTj_n9XY0vz9n6Asi-g0kRg>
 
 [//]: # (referencias citadas)
@@ -122,3 +125,4 @@ Tutorial de docker <https://www.youtube.com/playlist?list=PLCTD_CpMeEKTj_n9XY0vz
 [urlTutoDockerfile]: https://linuxconfig.org/how-to-build-a-docker-image-using-a-dockerfile
 [urlTutorial]: https://www.youtube.com/playlist?list=PLCTD_CpMeEKTj_n9XY0vz9n6Asi-g0kRg
 [urlAlpine]: https://alpinelinux.org/
+[urlTutoCp]: https://www.shellhacks.com/docker-cp-command-copy-file-to-from-container

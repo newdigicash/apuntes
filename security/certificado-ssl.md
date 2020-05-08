@@ -21,11 +21,11 @@ por lo que tarda días en emitirse. En tanto que _DV_ no, por eso se emite en mi
 ### Autor
 @newdigicash
 ### Versión
-0.1
+0.3
 
 ## 2. Observación
 [Certbot][urlCertbot] obtiene el certificado desde [Lets Encrypt][urlLetsEncrypt] y ayuda 
-renovarlo automáticamente.
+a renovarlo automáticamente.
 
 ## 3. Contenido 
 
@@ -33,7 +33,7 @@ renovarlo automáticamente.
 Para desarrollo, la CA [Lets Encrypt][urlLetsEncrypt] emite certificados gratuitos. 
 Hay una [herramienta para generar certificados SSL][urlSSL4Free] a nivel _DV_.
 
-Hay 2 formas para generar un CSR: 
+Hay 2 formas para generar un CSR y la llave privada: 
 + con [keytool][urlKeytool] y 
 + con [openssl][urlOpenssl].
 
@@ -47,7 +47,7 @@ Para validar el dominio hay dos formas:
 
 Una vez validado, la CA permite descargar los archivos [*ca_bundle.crt*][urlCABundle] , 
 *certificate.crt* que corresponde al dominio, y *private.key*.  Este último tiene información 
-solamente si la CA lo generó, caso contrario viene vacía porque es nuestro CSR.
+solamente si la CA generó el CSR por nosotros, caso contrario viene vacía.
 
 ### 3.2 Certificado para production
 Hay [varias Autoridades de Certificación (CA)][urlListaCA] como:

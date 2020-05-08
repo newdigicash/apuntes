@@ -29,6 +29,8 @@ Cmd | Descripción
 `kill -9 PID` | mata un proceso por id
 `lsof -i :puerto` | lista archivos asociados al puerto
 `rm -rf carpeta` | elimina la carpeta y contenido
+`ln -s origen destino` | Crea enlace simbólico
+`rm enlace-simbolico` | [borra el enlace simbólico][tutoRemLn]
 
 ### 3.2 Ejemplos de uso
 Escaneo de puertos 
@@ -55,3 +57,4 @@ Consola para explicar cmd <https://explainshell.com/>
 [tutoKill]: https://javarevisited.blogspot.com/2011/12/kill-command-unix-linux-example.html
 [tutoLsof]: https://www.tecmint.com/10-lsof-command-examples-in-linux/
 [tutoNetstat]: https://geekflare.com/netstat/
+[tutoRemLn]: https://linuxize.com/post/how-to-remove-symbolic-links-in-linux

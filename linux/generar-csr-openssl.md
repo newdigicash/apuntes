@@ -18,23 +18,24 @@ Para windows hay [binarios][urlBinWin] y están [aquí][urlBinWin].
 En [Cygwin][urlCygwin] hay un [paquete para openssl][urlPckOpenssl].
 
 ## 3. Contenido 
+
 ### 3.1 Generar un certificado nuevo y una llave nueva
-Para generar un CSR llamado _dominio\.com\.csr_ y llave nueva llamada *privada.key*. 
+Para generar un CSR llamado _dominio\.com\.csr_ y llave nueva llamada *private.key*. 
 En *common name*, para single-domain ingresar *www\.dominio\.com*, y para wildcard 
 escribir _\*.dominio\.com_.
 ~~~
-sudo openssl req -new -newkey rsa:2048 -nodes -keyout privada.key -out dominio.com.csr
+sudo openssl req -new -newkey rsa:2048 -nodes -keyout private.key -out dominio.com.csr
 ~~~
 
 ### 3.2 Generar un CSR en 2 pasos
-Genera la llave *privada.key*
+Genera la llave *private.key*
 ~~~
-sudo openssl genrsa -out privada.key 2048
+sudo openssl genrsa -out private.key 2048
 ~~~
 
 Genera el CSR  *dominio\.com\.csr*
 ~~~
-openssl req -new -days 3650 -key privada.key -out dominio.com.csr
+openssl req -new -days 3650 -key private.key -out dominio.com.csr
 ~~~
 Si ya se tiene la llave, solo es necesario crear el certificado. 
 
