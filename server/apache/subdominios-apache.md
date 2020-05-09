@@ -21,7 +21,7 @@ En ubuntu, en */etc/apache2/apache2.conf* hay que agregar *ServerName localhost*
 
 ## 3. Contenido 
 
-Pasos para [crer un subdominio][urlTutoSubdominio]. 
+Pasos para [crear un subdominio][urlTutoSubdominio]. 
 Para [crear varios dominios][urlTutoDominios] el procedimiento similar.
 
 ### 3.1 Ubuntu
