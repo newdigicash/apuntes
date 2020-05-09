@@ -6,6 +6,8 @@ Más info sobre los comandos:
 - Ejemplos de [uso de Kill][tutoKill]
 - Ejemplos de [uso de lsof][tutoLsof]
 - Ejemplos de [uso de netstat][tutoNetstat]
+- Ejemplos de [uso de chown][tutoChown]
+- Ejemplos de [uso de mkdir][tutoMkdir]
 
 Hay una [consola para explicar los comandos][cmdShell] y sus parámetros [aquí][cmdShell].
 ## 1. Metadatos
@@ -13,7 +15,7 @@ Hay una [consola para explicar los comandos][cmdShell] y sus parámetros [aquí]
 ### Autor
 @newdigicash
 ### Versión
-0.2
+0.3
 
 ## 2. Observación
 
@@ -31,6 +33,8 @@ Cmd | Descripción
 `rm -rf carpeta` | elimina la carpeta y contenido
 `ln -s origen destino` | Crea enlace simbólico
 `rm enlace-simbolico` | [borra el enlace simbólico][tutoRemLn]
+`mkdir -p directorio/subdirectorio` | Crea carpeta y subcarpeta
+`chown -R usuario directorio` | Cambia de propietario a caperta y contenido
 
 ### 3.2 Ejemplos de uso
 Escaneo de puertos 
@@ -39,7 +43,7 @@ nc -vz 192.168.0.1 80
 nc -vz www.dominio.org 443
 ~~~
 
-Muestra los archuivos asociados al puerto 80
+Muestra los archivos asociados al puerto 80
 ~~~
 sudo lsof -i TCP:80
 ~~~
@@ -58,3 +62,5 @@ Consola para explicar cmd <https://explainshell.com/>
 [tutoLsof]: https://www.tecmint.com/10-lsof-command-examples-in-linux/
 [tutoNetstat]: https://geekflare.com/netstat/
 [tutoRemLn]: https://linuxize.com/post/how-to-remove-symbolic-links-in-linux
+[tutoMkdir]: https://ayudalinux.com/como-usar-el-comando-mkdir
+[tutoChown]: https://www.servidoresadmin.com/comando-chown-en-linux
