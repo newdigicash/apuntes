@@ -12,7 +12,7 @@ están [aquí][urlRedirectSSL].
 ### Autor
 @newdigicash
 ### Versión
-0.2
+0.3
 
 ## 2. Observación
 En caso de falla al arrancar Apache luego de la configuración, hay que revisar 
@@ -24,10 +24,13 @@ la causa en el log *cat /var/log/apache2/error.log*
 Hay que [obtener un certificado SSL][urlTutoSsl] desde una entidad certificadora. 
 Los archivos necesarios son:
 + certificado primario de dominio. Ejemplo: *dominio.crt*
-+ certificado chain (root + intermidaate) de la CA. Ejemplo: *bundle.pem*
-+ llave privada
++ certificado chain (root + intermediate) de la CA. Ejemplo: *bundle.pem*
++ llave privada. Ejemplo: *private.key*
 
 ### 3.2 Instalación y configuración
+Para configurar el certificado en dominios y subdominios, las 
+indicaciones son las mismas. La diferencia está en el [tipo de certificado][urlTutoSsl] 
+*wildcard* que soporta subdominios.
 
 #### 3.2.1 Ubuntu
 
@@ -44,8 +47,8 @@ de *default-ssl.conf*. El puerto debe ser *443*.
 
 ~~~
 SSLEngine on
-SSLCertificateFile ruta/dominio.crt
-SSLCertificateKeyFile ruta/private.key
+SSLCertificateFile /ruta/dominio.crt
+SSLCertificateKeyFile /ruta/private.key
 SSLCertificateChainFile /ruta/bundle.pem
 ~~~
 
@@ -68,7 +71,7 @@ sudo service apache2 restart
 #### 3.3.1 Habilitar el puerto 443
 Habilitar el puerto _443_ en el firewall y/o router del server
 
-#### 3.3.2 Redirección SSL
+#### 3.3.2 Redirección a protocolo seguro
 
 **Paso 1**. Buscar el archivo de configuración en los sitios disponibles.
 ~~~
@@ -79,10 +82,11 @@ sudo vim /etc/apache2/sites-available/000-default.conf
 **Paso 2**. Revisar y agregar la [configuración del Virtual Host][urlRedirectSSL] 
 correspondiente. El archivo predeterminado es *000-default.conf*.
 ~~~
-Redirect / https://dominio.com
+Redirect / https://dominio.com/
 ~~~
 
-Hay [otras formas de configurar la redirección en el Virtual Host][urlRedirectSSL] y en htacces.
+Hay [otras formas de configurar la redirección en el Virtual Host][urlRedirectSSL] y 
+con [mod_rewrite][urlRedirectOficial].
 
 ## 4. Fuentes
 Configuración SSL en Apache <https://httpd.apache.org/docs/trunk/es/ssl/ssl_howto.html>
@@ -93,7 +97,7 @@ Comando a2ensite <http://manpages.ubuntu.com/manpages/bionic/man8/a2ensite.8.htm
 
 Comando a2enmod <http://manpages.ubuntu.com/manpages/bionic/en/man8/a2enmod.8.html>
 
-Redirección SSL <https://cwiki.apache.org/confluence/display/HTTPD/RedirectSSL>
+Redirección SSL <https://httpd.apache.org/docs/2.4/rewrite/remapping.html>
 
 [//]: # (referencias citadas)
 [urlApacheSsl]: https://httpd.apache.org/docs/trunk/es/ssl/ssl_howto.html
@@ -101,3 +105,4 @@ Redirección SSL <https://cwiki.apache.org/confluence/display/HTTPD/RedirectSSL>
 [urlTutoDigicert]: https://www.digicert.com/kb/csr-ssl-installation/ubuntu-server-with-apache2-openssl.htm
 [urlOtroDigicert]: https://www.digicert.com/kb/csr-ssl-installation/apache-openssl.htm
 [urlRedirectSSL]: https://cwiki.apache.org/confluence/display/HTTPD/RedirectSSL
+[urlRedirectOficial]: https://httpd.apache.org/docs/2.4/rewrite/remapping.html
