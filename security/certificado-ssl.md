@@ -21,7 +21,7 @@ por lo que tarda días en emitirse. En tanto que _DV_ no, por eso se emite en mi
 ### Autor
 @newdigicash
 ### Versión
-0.3
+0.4
 
 ## 2. Observación
 [Certbot][urlCertbot] obtiene el certificado desde [Lets Encrypt][urlLetsEncrypt] y ayuda 
@@ -56,6 +56,7 @@ Hay [varias Autoridades de Certificación (CA)][urlListaCA] como:
 + [Godaddy SSL][urlGodaddy] Precios similares a [Comodo SSL][urlComodo]
 + [Comodo SSL][urlComodo] para negocios medianos. Costoso
 + [DigiCert][urlDigicert] para negocios serios. Más costoso
++ [Global Sign][urlGlobalSign] para negocios serios. También costoso
 
 Cada CA tiene su proceso para la emisión de certificados. Algunas CA generan el CSR 
 con la información que nosotros proporcionemos, mientras que otras CA piden que 
@@ -104,8 +105,9 @@ Wiki de SSL <https://es.wikipedia.org/wiki/Seguridad_de_la_capa_de_transporte>
 [urlNamecheap]: https://www.namecheap.com/security/ssl-certificates/
 [urlComodo]: https://ssl.comodo.com/
 [urlGodaddy]: https://www.godaddy.com/web-security/ssl-certificate
-[urlDigicert]: https://www.digicert.com/es/
+[urlDigicert]: https://www.digicert.com/es/compare-and-buy-ssl-certificates
 [urlComodoStore]: https://comodosslstore.com/
 [urlListaCA]: https://www.techradar.com/news/best-ssl-certificate-provider
 [urlConverterFormato]: https://www.sslshopper.com/ssl-converter.html
 [urlCertbot]: https://certbot.eff.org
+[urlGlobalSign]: https://shop.globalsign.com/en/ssl-tls-certificates
