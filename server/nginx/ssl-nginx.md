@@ -51,7 +51,7 @@ sudo vim /etc/nginx/sites-available/default
 
 **Paso 3**. Copiar el fragmento de server y pegar a continuación, 
 en el mismo archivo *default* o el que corresponda. De esta forma 
-en primer server atiende el 80 y el segundo server el 443.
+el primer server atiende el 80 y el segundo server el 443.
 
 ~~~
 server {
