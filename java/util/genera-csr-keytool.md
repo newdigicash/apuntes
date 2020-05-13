@@ -12,7 +12,7 @@ Aquí hay [otro tutorial][urlGlobalSign] breve para [generar un CSR][urlGlobalSi
 ### Autor
 @newdigicash
 ### Versión
-0.2
+0.4
 
 ## 2. Observación
 
@@ -44,12 +44,20 @@ con passphrase igual al _mikey.jks_
 sudo keytool -importkeystore -srckeystore mikey.jks -destkeystore mikey.p12 -srcalias dominio.com -srcstoretype jks -deststoretype pkcs12
 ~~~
 
-**Paso 4**. [Exportar la llave privada][urlTutoExportKey], esto crea _private.key_ 
-desde la keystore [PKCS#12][urlP12Params]. Delimitado por *PRIVATE KEY* o *RSA PRIVATE KEY*.
+**Paso 4**. Comprobar el archivo generado usando la passphrase ingresada antes. 
+Debe mostrar tipo _PKCS12_ y el fingerprint.
+~~~
+sudo keytool -list -keystore mikey.p12 -storepass mipassphrase
+~~~
+
+**Paso 5**. [Exportar la llave privada][urlTutoExportKey], esto crea _private.key_ 
+desde la keystore [PKCS#12][urlP12Params] sin encriptación (o sea sin contraseña). 
+Delimitada por *PRIVATE KEY* o *RSA PRIVATE KEY*.
 
 Este paso necesita [Openssl][urlOpenssl] y [algunos parámetros][urlP12Params]. 
 
-En _unix_ hay que ingresar la passphrase al momento de ejecutar el comando.
+En _unix_ hay que ingresar la passphrase al momento de ejecutar el comando. 
+El parámetro _-nodes_ exporta la llave privada sin encriptación
 
 ~~~
 sudo openssl pkcs12 -in mikey.p12 -out private.key -nocerts -nodes
@@ -63,6 +71,15 @@ openssl pkcs12 -in mikey.p12 -out private.key -nocerts -nodes -passin 'pass:mipa
 Al final se obtiene 2 keystores _mikey.jks_ y _mikey.p12_, el CSR _dominio.com.csr_ 
 para enviar a la CA, la _private.key_, la passphrase de al menos 6 caracteres, 
 y el alias que puede ser _dominio.com_.
+
+**Paso 6. Opcional**. En caso de querer exportar la llave con encriptación, 
+hay que agregar el parámetro _-passout_ e indicar la contraseña de la llave exportada, 
+y quitar _-nodes_. Como se muestra a continuación.
+~~~
+openssl pkcs12 -in mikey.p12 -out private.key -nocerts -passin 'pass:mipassphrase' -passout 'pass:otrapassphrase'
+~~~
+
+Esto crea la llave delimitada por *ENCRYPTED PRIVATE KEY*.
 
 ## 4. Fuentes
 Doc oficial sobre la keytool <https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html>

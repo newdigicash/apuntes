@@ -69,7 +69,7 @@ sudo service apache2 restart
 ### 3.3 Post instalación
 
 #### 3.3.1 Habilitar el puerto 443
-Habilitar el puerto _443_ en el firewall y/o router del server
+[Habilitar el puerto 443 en el firewall][urlTutoFw] y/o router del server
 
 #### 3.3.2 Redirección a protocolo seguro
 
@@ -106,3 +106,4 @@ Redirección SSL <https://httpd.apache.org/docs/2.4/rewrite/remapping.html>
 [urlOtroDigicert]: https://www.digicert.com/kb/csr-ssl-installation/apache-openssl.htm
 [urlRedirectSSL]: https://cwiki.apache.org/confluence/display/HTTPD/RedirectSSL
 [urlRedirectOficial]: https://httpd.apache.org/docs/2.4/rewrite/remapping.html
+[urlTutoFw]: https://github.com/newdigicash/apuntes/blob/master/linux/firewall-linux.md

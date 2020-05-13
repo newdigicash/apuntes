@@ -79,7 +79,7 @@ sudo service nginx restart
 ### 3.3 Post instalación
 
 #### 3.3.1 Habilitar el puerto 443
-Habilitar el puerto _443_ en el firewall y/o router del server
+[Habilitar el puerto 443 en el firewall][urlTutoFw] y/o router del server
 
 #### 3.3.2 Redirección a protocolo seguro
 
@@ -112,3 +112,4 @@ Tutorial de configuración <https://www.digicert.com/es/instalar-certificado-ssl
 [urlTutoErrorLog]: https://www.keycdn.com/support/nginx-error-log
 [urlTutoConfigSsl]: https://softwarecrafters.io/devops/configurar-servidor-https-nginx
 [urlRedirectSSL]: https://linuxize.com/post/redirect-http-to-https-in-nginx
+[urlTutoFw]: https://github.com/newdigicash/apuntes/blob/master/linux/firewall-linux.md
