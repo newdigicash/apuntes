@@ -2,7 +2,7 @@
 El comando [keytool][urlKeytool], de Java, administra las llaves secretas. 
 El uso más común es para generar un [CSR][urlCSR].
 
-Antes de generar el [CSR][urlCSR], es necesario crear una keystore con [keytool][urlKeytool]. 
+Antes de generar el [CSR][urlCSR], es necesario crear un keystore con [keytool][urlKeytool]. 
 En este [tutorial][urlDigicert] se indican los pasos para [generar el certificado][urlDigicert]. 
 
 Aquí hay [otro tutorial][urlGlobalSign] breve para [generar un CSR][urlGlobalSign].
@@ -12,7 +12,7 @@ Aquí hay [otro tutorial][urlGlobalSign] breve para [generar un CSR][urlGlobalSi
 ### Autor
 @newdigicash
 ### Versión
-0.4
+0.5
 
 ## 2. Observación
 
@@ -51,7 +51,7 @@ sudo keytool -list -keystore mikey.p12 -storepass mipassphrase
 ~~~
 
 **Paso 5**. [Exportar la llave privada][urlTutoExportKey], esto crea _private.key_ 
-desde la keystore [PKCS#12][urlP12Params] sin encriptación (o sea sin contraseña). 
+desde la keystore [PKCS#12][urlP12Params] sin encriptación (y sin contraseña). 
 Delimitada por *PRIVATE KEY* o *RSA PRIVATE KEY*.
 
 Este paso necesita [Openssl][urlOpenssl] y [algunos parámetros][urlP12Params]. 
@@ -79,7 +79,15 @@ y quitar _-nodes_. Como se muestra a continuación.
 openssl pkcs12 -in mikey.p12 -out private.key -nocerts -passin 'pass:mipassphrase' -passout 'pass:otrapassphrase'
 ~~~
 
-Esto crea la llave delimitada por *ENCRYPTED PRIVATE KEY*.
+Esto crea la llave *private.key* delimitada por *ENCRYPTED PRIVATE KEY*.
+
+Para convertir la llave privada encriptada con AES, ejecutar el comando 
+e indicar la passphrase.
+~~~
+sudo openssl rsa -in private.key -aes256 -out privateAES.pem
+~~~
+
+Esto crea la llave *privateAES.pem* delimitada por *RSA PRIVATE KEY*
 
 ## 4. Fuentes
 Doc oficial sobre la keytool <https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html>

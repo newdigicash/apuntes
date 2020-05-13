@@ -1,5 +1,5 @@
 # Keystore PKCS12 desde CRT/PEM
-El [comando openssl][urlParamP12] permite crear una keystore a partir 
+El [comando openssl][urlParamP12] permite crear un keystore a partir 
 de los certificados emitidos por una CA.
 
 Hay un [tutorial][urlPem2Jks] que indica cómo [convertir de PEM a JKS][urlPem2Jks].
@@ -8,7 +8,7 @@ Hay un [tutorial][urlPem2Jks] que indica cómo [convertir de PEM a JKS][urlPem2J
 ### Autor
 @newdigicash
 ### Versión
-0.1
+0.2
 
 ## 2. Observación
 
@@ -24,7 +24,7 @@ Los archivos necesarios son:
 + certificado chain (root + intermediate) de la CA. Ejemplo: *ca_bundle.crt*
 + llave privada. Ejemplo: *private.key* 
 
-### 3.2 Generar una keystore en formato PKCS12
+### 3.2 Generar un keystore en formato PKCS12
 
 **Paso 1**. Consolidar los certificados individuales en un [archivo pem][urlPem]. 
 ~~~
@@ -34,8 +34,16 @@ También se puede crear un archivo consolidado manualmente.
 El archivo resultante debe respetar el [orden del formato pem][urlPem]: 
 *certificado primario*, *certificado intermediate* y *certificado root*.
 
-**Paso 2**. Generar una keystore en PKCS#12. El parámetro _-passin_ es necesario 
-solamente si la llave privada está encriptada. 
+**Paso 2**. Generar un keystore en PKCS#12. El parámetro _-passin_ es necesario 
+solamente si la llave privada está encriptada.
+
+En _Unix_ pide la passphrase de la llave privada si esta encriptada y 
+la passphrase para *mikeystore.p12* 
+~~~
+sudo openssl pkcs12 -export -inkey private.key -in consolidado.pem -out mikeystore.p12 -name dominio.com
+~~~
+
+En _windows_ es necesario indicar la passphrase como parámetro.
 ~~~
 openssl pkcs12 -export -inkey private.key -in consolidado.pem -out mikeystore.p12 -name dominio.com -passin 'pass:passphraseKey' -passout 'pass:passphraseP12'
 ~~~
@@ -46,12 +54,12 @@ Debe mostrar tipo _PKCS12_, 1 entrada y el fingerprint.
 sudo keytool -list -keystore mikeystore.p12 -storepass mipassphrase
 ~~~
 
-**Paso 4**. Importar de PKCS12 a JKS con [keytool][urlParamKeytool]. 
+**Paso 4 Opcional**. Importar de PKCS12 a JKS con [keytool][urlParamKeytool]. 
 Si la passphrase de origen *-deststorepass*  y destino *-srcstorepass* 
 son diferentes, es necesario agregar el [parámetro][urlParamKeytool] *-destkeypass* 
 con la passphrase nueva.
 ~~~
-keytool -importkeystore -srckeystore mikeystore.p12 -srcstoretype PKCS12 -srcstorepass passphraseP12 -deststorepass passphraseJKS -alias dominio.com -deststoretype PKCS12 -destkeystore mikeystore.jks
+sudo keytool -importkeystore -srckeystore mikeystore.p12 -srcstoretype PKCS12 -srcstorepass passphraseP12 -deststorepass passphraseJKS -alias dominio.com -deststoretype PKCS12 -destkeystore mikeystore.jks
 ~~~
 
 El comando [keytool muestra un mensaje de advertencia al importar][urlAdvertenciaJks] 
