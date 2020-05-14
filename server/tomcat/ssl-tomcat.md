@@ -1,4 +1,4 @@
-# .Certificado SSL en Tomcat
+# Certificado SSL en Tomcat
 [Tomcat][urlTomcatSsl] permite la configuración de un [certificado SSL][urlTutoSsl]. 
 
 En la [documentación oficial][urlTomcatSsl] hay indicaciones para preparar los certificados y 
@@ -12,7 +12,7 @@ Hay un [tutorial][urlTutoSsltomcat] que explica la [configuración del certifica
 ### Autor
 @newdigicash
 ### Versión
-0.1
+0.2
 
 ## 2. Observación
 En caso de falla al arrancar Tomcat luego de la configuración, hay que revisar 
@@ -59,7 +59,7 @@ en el mismo archivo _server.xml_.
 	port="443" maxThreads="150" 
 	scheme="https" secure="true" SSLEnabled="true" 
 	clientAuth="false" >
-	<SSLHostConfig hostName="dominio.com" >
+	<SSLHostConfig>
 		<Certificate 
 			certificateKeystoreFile="ruta/mikeystore.p12" 
 			certificateKeystorePassword="mipassphrase" 
@@ -94,8 +94,10 @@ sudo ls -l /opt/tomcat/latest/conf
 sudo vim /opt/tomcat/latest/conf/web.xml
 ~~~
 
-**Paso 2**. Agregar la restricción de seguridad en *web.xml*. 
-El [parámetro _url-pattern_][urlWebPattern] indica la url a ser protegida.
+**Paso 2**. Agregar la [restricción de seguridad][urlEjemploSecurityConst] 
+en *web.xml* para hacer la redirección temporal (estado 302) a 
+protocolo seguro.
+
 ~~~
 <security-constraint>
 	<web-resource-collection>
@@ -108,6 +110,8 @@ El [parámetro _url-pattern_][urlWebPattern] indica la url a ser protegida.
 </security-constraint>
 ~~~
 
+El [parámetro _url-pattern_][urlWebPattern] indica la url a ser protegida. 
+
 El [parámetro _transport-guarantee_][urlTransportGuarantee] establece 
 el nivel de protección a los datos. [*CONFIDENTIAL*][urlTransportGuarantee] 
 garantiza que los datos no cambian por eso usa SSL y el *redirectPort* 
@@ -115,6 +119,23 @@ del _Connector_.
 
 Hay otras [formas de configurar la restricción de seguridad][urlEjemploSecurityConst], 
 he [aquí otros ejemplos][urlEjemploSecurityConst].
+
+**Paso 3**. Buscar el archivo de configuración *server.xml*
+
+~~~
+sudo ls -l /opt/tomcat/latest/conf
+sudo vim /opt/tomcat/latest/conf/server.xml
+~~~
+
+**Paso 4**. Agregar la [redirección permanente (estado 301)][urlEjemploSecurityConst]. 
+El parámetro *transportGuaranteeRedirectStatus* establece una redirección con otro valor. 
+El valor predeterminado es 302..
+
+~~~
+<Realm className="org.apache.catalina.realm.LockOutRealm" transportGuaranteeRedirectStatus="301">
+	<Realm ... />
+</Realm>
+~~~
 
 ## 4. Fuentes
 Doc oficial Tomcat <http://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html>
