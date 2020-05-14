@@ -12,14 +12,17 @@ Hay un [tutorial][urlTutoSsltomcat] que explica la [configuración del certifica
 ### Autor
 @newdigicash
 ### Versión
-0.2
+0.3
 
-## 2. Observación
-En caso de falla al arrancar Tomcat luego de la configuración, hay que revisar 
-la causa en el log. El log puede estar en *cat /opt/tomcat/latest/catalina.out* 
+## 2. Observaciones
+
+- En la configuración con certificados individuales, la llave privada no debe estar encriptada 
+para *tomcat 9* caso contrario aparece un error con AES cipher. No obstante, en *tomcat 8* no 
+ocurre este problema.
+- En caso de falla al arrancar Tomcat luego de la configuración, hay que revisar 
+la causa en el log. El log puede estar en *cat /opt/tomcat/latest/logs/catalina.out* 
 o similares.
-
-Para [instalar Tomcat en Ubuntu][urlTutoInstalaTomcat] hay un [tutorial][urlTutoInstalaTomcat] 
+- Para [instalar Tomcat 9 en Ubuntu][urlTutoInstalaTomcat] hay un [tutorial][urlTutoInstalaTomcat] 
 y [otro tutorial aquí][urlTutoTomcatUbuntu].
 
 ## 3. Contenido 
@@ -53,6 +56,7 @@ del nuevo conector.
 
 **Paso 3**. Revisar y agregar la [configuración del nuevo _Connector_][urlTomcatConf] 
 en el mismo archivo _server.xml_.
+
 ~~~
 <Conector 
 	protocol="org.apache.coyote.http11.Http11NioProtocol" 
@@ -61,7 +65,7 @@ en el mismo archivo _server.xml_.
 	clientAuth="false" >
 	<SSLHostConfig>
 		<Certificate 
-			certificateKeystoreFile="ruta/mikeystore.p12" 
+			certificateKeystoreFile="/ruta/mikeystore.p12" 
 			certificateKeystorePassword="mipassphrase" 
 			type="UNDEFINED" />
 	</SSLHostConfig>
@@ -83,12 +87,13 @@ sudo /opt/tomcat/latest/bin/startup.sh
 
 #### 3.3.1 Habilitar el puerto correspondiente
 [Habilitar el puerto 443 en el firewall][urlTutoFw] y/o router del server 
-o el puerto que corresponda.
+o el puerto que corresponda según el Conector.
 
 #### 3.3.2 Redirección a protocolo seguro
 
 **Paso 1**. Buscar el archivo de configuración en la carpeta *conf*. 
 El archivo predeterminado es *web.xml*.
+
 ~~~
 sudo ls -l /opt/tomcat/latest/conf
 sudo vim /opt/tomcat/latest/conf/web.xml
@@ -137,12 +142,61 @@ El valor predeterminado es 302..
 </Realm>
 ~~~
 
+### 3.4 Configuración alterna de Conector
+
+#### 3.4.1 Con certificados individuales
+El parámetro [*certificateFile*][urlTomcatConf] es para el certificado primario de dominio, 
+[*certificateFile*][urlTomcatConf] es para la llave privada, y 
+[*certificateChainFile*][urlTomcatConf] para el certificado chain (intermediate \+ root).
+
+~~~
+<Connector port="443" 
+	protocol="org.apache.coyote.http11.Http11NioProtocol" 
+	maxThreads="150" SSLEnabled="true" >
+	<SSLHostConfig>
+		<Certificate 
+			certificateKeyFile="/ruta/private.key" 
+			certificateFile="/ruta/certificate.crt"
+			certificateChainFile="/ruta/ca_bundle.crt"
+			type="UNDEFINED" />
+	</SSLHostConfig>
+</Connector>
+~~~
+
+Si la llave privada está encriptada entonces se debe agregar 
+el parámetro *certificateKeyPassword* a *Certificate*.
+
+#### 3.4.2 Soporte para [HTTP/2][urlIntroHttp2]
+
+Acepta peticiones en HTTP/1.1 y [responde en HTTP/2][urlTomcatHttp2].
+
+~~~
+<Conector 
+	protocol="org.apache.coyote.http11.Http11NioProtocol" 
+	port="443" maxThreads="150" 
+	scheme="https" secure="true" SSLEnabled="true" 
+	clientAuth="false" >
+	<UpgradeProtocol className="org.apache.coyote.http2.Http2Protocol" />
+	<SSLHostConfig>
+		<Certificate 
+			certificateKeystoreFile="/ruta/mikeystore.p12" 
+			certificateKeystorePassword="mipassphrase" />
+	</SSLHostConfig>
+</Conector>
+~~~
+[HTTP/2][urlIntroHttp2] funciona bien con *OpenJDK 11*, aunque parece que 
+[Java 8u252 ya tiene soporte][urlNoticiaJava] para [ALPN][urlWikiAlpn].
+
 ## 4. Fuentes
 Doc oficial Tomcat <http://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html>
 
 Parámetros de configuración Tomcat <https://tomcat.apache.org/tomcat-9.0-doc/config/http.html>
 
 Tutorial de instalación <https://www.digicert.com/es/instalar-certificado-ssl-tomcat.htm>
+
+Introduccion a HTTP/2 <https://developers.google.com/web/fundamentals/performance/http2?hl=es>
+
+Wiki de ALPN <https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation>
 
 [//]: # (referencias citadas)
 [urlTomcatSsl]: http://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html
@@ -157,3 +211,7 @@ Tutorial de instalación <https://www.digicert.com/es/instalar-certificado-ssl-t
 [urlTransportGuarantee]: http://wiki.metawerx.net/wiki/Web.xml.TransportGuarantee
 [urlWebPattern]: https://docs.oracle.com/cd/E19798-01/821-1841/gjjcd/index.html
 [urlEjemploSecurityConst]: http://wiki.metawerx.net/wiki/ForcingSSLForSectionsOfYourWebsite
+[urlTomcatHttp2]: https://tomcat.apache.org/tomcat-9.0-doc/config/http.html#HTTP/2_Support
+[urlIntroHttp2]: https://developers.google.com/web/fundamentals/performance/http2?hl=es
+[urlNoticiaJava]: https://webtide.com/jetty-alpn-java-8u252
+[urlWikiAlpn]: https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation
