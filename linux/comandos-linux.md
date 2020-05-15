@@ -15,7 +15,7 @@ Hay una [consola para explicar los comandos][cmdShell] y sus parámetros [aquí]
 ### Autor
 @newdigicash
 ### Versión
-0.3
+0.4
 
 ## 2. Observación
 
@@ -25,9 +25,12 @@ Este archivo está sujeto a cambios
 ### 3.1 Comandos
 Cmd | Descripción
 :-- | :--
+`ssh -i llave-privada usuario@host` | conecta al server remoto vía ssh
+`scp -r host:ruta/carpeta .` | [Descarga la carpeta remota][tutoScp] a la carpeta actual
 `ls -la ruta` | muestra todos los archivos y permisos
 `netstat -ntlp` \| `grep LISTEN` | para ver los puertos abiertos 
-`nc -vz host puerto` | escanea los puertos
+`nc -vz host puerto` | [escanea los puertos][tutoOpenPorts]
+`nmap -sT -pinicio-fin host` | [escanea los puertos][tutoOpenPorts] *inicio* a *fin*
 `kill -9 PID` | mata un proceso por id
 `lsof -i :puerto` | lista archivos asociados al puerto
 `rm -rf carpeta` | elimina la carpeta y contenido
@@ -37,10 +40,16 @@ Cmd | Descripción
 `chown -R usuario directorio` | Cambia de propietario a caperta y contenido
 
 ### 3.2 Ejemplos de uso
-Escaneo de puertos 
+Escanea un solo puerto con NC y Nmap. 
 ~~~
-nc -vz 192.168.0.1 80
 nc -vz www.dominio.org 443
+nmap -sT -p80 dominio.com
+~~~
+
+Escanea un rango de puertos con NC y Nmap.
+~~~
+nc -vz 192.168.0.1 80-90
+nmap -sT -p80-90 192.168.0.1
 ~~~
 
 Muestra los archivos asociados al puerto 80
@@ -64,3 +73,5 @@ Consola para explicar cmd <https://explainshell.com/>
 [tutoRemLn]: https://linuxize.com/post/how-to-remove-symbolic-links-in-linux
 [tutoMkdir]: https://ayudalinux.com/como-usar-el-comando-mkdir
 [tutoChown]: https://www.servidoresadmin.com/comando-chown-en-linux
+[tutoScp]: https://www.ssh.com/ssh/scp
+[tutoOpenPorts]: https://linuxize.com/post/check-open-ports-linux

@@ -12,7 +12,7 @@ Hay un [tutorial][urlTutoSsltomcat] que explica la [configuración del certifica
 ### Autor
 @newdigicash
 ### Versión
-0.3
+0.4
 
 ## 2. Observaciones
 
@@ -187,6 +187,42 @@ Acepta peticiones en HTTP/1.1 y [responde en HTTP/2][urlTomcatHttp2].
 [HTTP/2][urlIntroHttp2] funciona bien con *OpenJDK 11*, aunque parece que 
 [Java 8u252 ya tiene soporte][urlNoticiaJava] para [ALPN][urlWikiAlpn].
 
+### 3.5 Redirección alterna usando [_RewriteValve_][urlTomcatRewrite]
+
+*Paso 1*. Buscar el archivo *server.xml* de configuración.
+
+~~~
+sudo ls -l /opt/tomcat/latest/conf
+sudo vim /opt/tomcat/latest/conf/server.xml
+~~~
+
+*Paso 2*. Agregar el elemento _Valve_ a _Host_ en *server.xml*.
+
+~~~
+<Host>
+	<Valve className="org.apache.catalina.valves.rewrite.RewriteValve" />
+	...
+</Host>
+~~~
+
+*Paso 3*. Crear una archivo de configuración nuevo.
+
+~~~
+sudo vim /opt/tomcat/latest/conf/Catalina/localhost/rewrite.config
+~~~
+
+*Paso 4*. Crear las condiciones y reglas para redireccionar cuando 
+no sea protocolo seguro..
+
+~~~
+RewriteCond %{HTTPS} off 
+RewriteRule ^(.*)$ https://dominio.com:puerto/$1 [R=301,L]
+~~~
+
+En la [documentación de tomcat][urlTomcatRewrite] hay detalles sobre 
+la [configuración con _rewrite_][urlTomcatRewrite].
+
+
 ## 4. Fuentes
 Doc oficial Tomcat <http://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html>
 
@@ -197,6 +233,8 @@ Tutorial de instalación <https://www.digicert.com/es/instalar-certificado-ssl-t
 Introduccion a HTTP/2 <https://developers.google.com/web/fundamentals/performance/http2?hl=es>
 
 Wiki de ALPN <https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation>
+
+Doc sobre Rewrite <https://tomcat.apache.org/tomcat-8.0-doc/rewrite.html>
 
 [//]: # (referencias citadas)
 [urlTomcatSsl]: http://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html
@@ -215,3 +253,4 @@ Wiki de ALPN <https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiati
 [urlIntroHttp2]: https://developers.google.com/web/fundamentals/performance/http2?hl=es
 [urlNoticiaJava]: https://webtide.com/jetty-alpn-java-8u252
 [urlWikiAlpn]: https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation
+[urlTomcatRewrite]: https://tomcat.apache.org/tomcat-8.0-doc/rewrite.html

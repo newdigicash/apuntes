@@ -12,7 +12,7 @@ están [aquí][urlRedirectSSL].
 ### Autor
 @newdigicash
 ### Versión
-0.3
+0.4
 
 ## 2. Observación
 En caso de falla al arrancar Apache luego de la configuración, hay que revisar 
@@ -79,7 +79,7 @@ sudo ls -la /etc/apache2/sites-available/
 sudo vim /etc/apache2/sites-available/000-default.conf
 ~~~
 
-**Paso 2**. Revisar y agregar la [configuración del Virtual Host][urlRedirectSSL] 
+**Paso 2**. Revisar y agregar la [configuración en el Virtual Host][urlRedirectSSL] 
 correspondiente. El archivo predeterminado es *000-default.conf*.
 ~~~
 Redirect / https://dominio.com/
@@ -87,6 +87,21 @@ Redirect / https://dominio.com/
 
 Hay [otras formas de configurar la redirección en el Virtual Host][urlRedirectSSL] y 
 con [mod_rewrite][urlRedirectOficial].
+
+### 3.4 Redirección alterna usando htaccess
+
+Redireccinar cuando no sea protocolo seguro o cuando el dominio empiece con *www*.
+
+~~~
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://dominio.com/$1 [R=301,L]
+~~~
+
+Esta configuración se basa en este [tutorial][urlTutoRedirectHtacess]. Otros 
+[ejemplos de configuración][urlRedirectOficial] están en la 
+[documentación oficial][urlRedirectOficial].
 
 ## 4. Fuentes
 Configuración SSL en Apache <https://httpd.apache.org/docs/trunk/es/ssl/ssl_howto.html>
@@ -107,3 +122,4 @@ Redirección SSL <https://httpd.apache.org/docs/2.4/rewrite/remapping.html>
 [urlRedirectSSL]: https://cwiki.apache.org/confluence/display/HTTPD/RedirectSSL
 [urlRedirectOficial]: https://httpd.apache.org/docs/2.4/rewrite/remapping.html
 [urlTutoFw]: https://github.com/newdigicash/apuntes/blob/master/linux/firewall-linux.md
+[urlTutoRedirectHtacess]: https://simonecarletti.com/blog/2016/08/redirect-domain-http-https-www-apache
