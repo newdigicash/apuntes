@@ -146,7 +146,7 @@ El valor predeterminado es 302..
 
 #### 3.4.1 Con certificados individuales
 El parámetro [*certificateFile*][urlTomcatConf] es para el certificado primario de dominio, 
-[*certificateFile*][urlTomcatConf] es para la llave privada, y 
+[*certificateKeyFile*][urlTomcatConf] es para la llave privada, y 
 [*certificateChainFile*][urlTomcatConf] para el certificado chain (intermediate \+ root).
 
 ~~~
@@ -205,7 +205,7 @@ sudo vim /opt/tomcat/latest/conf/server.xml
 </Host>
 ~~~
 
-*Paso 3*. Crear una archivo de configuración nuevo.
+*Paso 3*. Crear un archivo de configuración nuevo.
 
 ~~~
 sudo vim /opt/tomcat/latest/conf/Catalina/localhost/rewrite.config

@@ -15,7 +15,7 @@ Hay una [consola para explicar los comandos][cmdShell] y sus parámetros [aquí]
 ### Autor
 @newdigicash
 ### Versión
-0.4
+0.5
 
 ## 2. Observación
 
@@ -28,6 +28,7 @@ Cmd | Descripción
 `ssh -i llave-privada usuario@host` | conecta al server remoto vía ssh
 `scp -r host:ruta/carpeta .` | [Descarga la carpeta remota][tutoScp] a la carpeta actual
 `ls -la ruta` | muestra todos los archivos y permisos
+`find / -name archivo` | [busca un archivo][tutoFind] en disco
 `netstat -ntlp` \| `grep LISTEN` | para ver los puertos abiertos 
 `nc -vz host puerto` | [escanea los puertos][tutoOpenPorts]
 `nmap -sT -pinicio-fin host` | [escanea los puertos][tutoOpenPorts] *inicio* a *fin*
@@ -57,6 +58,12 @@ Muestra los archivos asociados al puerto 80
 sudo lsof -i TCP:80
 ~~~
 
+Busca un archivo en todo el disco y en carpeta actual
+~~~
+sudo find / -name archivo-*-.ext
+sudo find . -name archivo
+~~~
+
 ## 4. Fuentes
 Comandos básicos <https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners>
 
@@ -75,3 +82,4 @@ Consola para explicar cmd <https://explainshell.com/>
 [tutoChown]: https://www.servidoresadmin.com/comando-chown-en-linux
 [tutoScp]: https://www.ssh.com/ssh/scp
 [tutoOpenPorts]: https://linuxize.com/post/check-open-ports-linux
+[tutoFind]: https://www.lifewire.com/uses-of-linux-command-find-2201100

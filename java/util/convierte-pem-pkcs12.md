@@ -65,7 +65,7 @@ sudo keytool -importkeystore -srckeystore mikeystore.p12 -srcstoretype PKCS12 -s
 El comando [keytool muestra un mensaje de advertencia al importar][urlAdvertenciaJks] 
 indicando que jks es un formato propietario y recomienda migrar a PKCS12. 
 Para prevenir esta advertencia al importar, el parámetro *-deststoretype PKCS12* 
-pemite indicar el formato que tendrá el contenido de la keystore sin importar 
+pemite indicar el formato que tendrá el contenido del keystore sin importar 
 la extensión _.p12_ o _.jks_.
 
 ~~~
