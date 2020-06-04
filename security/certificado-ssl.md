@@ -21,7 +21,7 @@ por lo que tarda días en emitirse. En tanto que _DV_ no, por eso se emite en mi
 ### Autor
 @newdigicash
 ### Versión
-0.4
+0.5
 
 ## 2. Observación
 [Certbot][urlCertbot] obtiene el certificado desde [Lets Encrypt][urlLetsEncrypt] y ayuda 
@@ -51,7 +51,9 @@ solamente si la CA generó el CSR por nosotros, caso contrario viene vacía.
 
 ### 3.2 Certificado para production
 Hay [varias Autoridades de Certificación (CA)][urlListaCA] como:
-+ [Namecheap][urlNamecheap] se basa en [Comodo Store][urlComodoStore].
++ [Namecheap][urlNamecheap] es un proveedor o partner de [Comodo Store][urlComodoStore]
++ [SSLStore][urlSslstore] también es un partner de [Comodo Store][urlComodoStore] y otras CA. 
+Certificados con descuento.
 + [Comodo Store][urlComodoStore] ofrece certificados económicos.
 + [Godaddy SSL][urlGodaddy] Precios similares a [Comodo SSL][urlComodo]
 + [Comodo SSL][urlComodo] para negocios medianos. Costoso
@@ -89,6 +91,19 @@ En [esta web][urlConverterFormato] hay indicaciones
 ## 4. Fuentes
 Wiki de SSL <https://es.wikipedia.org/wiki/Seguridad_de_la_capa_de_transporte>
 
+Namecheap certificados <https://www.namecheap.com/security/ssl-certificates>
+
+The SSL Store <https://www.thesslstore.com>
+
+Godaddy SSL <https://www.godaddy.com/web-security/ssl-certificate>
+
+Comodo Store <https://comodosslstore.com>
+
+Comodo SSL <https://ssl.comodo.com>
+
+DigiCert SSL <https://www.digicert.com/es/compare-and-buy-ssl-certificates>
+
+Global Sign SSL <https://shop.globalsign.com/en/ssl-tls-certificates>
 
 [//]: # (referencias citadas)
 [urlCSR]: https://www.dondominio.com/help/es/242/que-es-csr/
@@ -102,7 +117,8 @@ Wiki de SSL <https://es.wikipedia.org/wiki/Seguridad_de_la_capa_de_transporte>
 [urlTutoScp]: https://github.com/newdigicash/apuntes/blob/master/linux/transferir-archivos.md
 [urlOpenssl]: https://github.com/newdigicash/apuntes/blob/master/linux/generar-csr-openssl.md
 [urlKeytool]: https://github.com/newdigicash/apuntes/blob/master/java/util/genera-csr-keytool.md
-[urlNamecheap]: https://www.namecheap.com/security/ssl-certificates/
+[urlNamecheap]: https://www.namecheap.com/security/ssl-certificates
+[urlSslstore]: https://www.thesslstore.com
 [urlComodo]: https://ssl.comodo.com/
 [urlGodaddy]: https://www.godaddy.com/web-security/ssl-certificate
 [urlDigicert]: https://www.digicert.com/es/compare-and-buy-ssl-certificates
