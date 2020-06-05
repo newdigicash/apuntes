@@ -12,28 +12,29 @@ Aquí hay [otro tutorial][urlGlobalSign] breve para [generar un CSR][urlGlobalSi
 ### Autor
 @newdigicash
 ### Versión
-0.5
+0.6
 
-## 2. Observación
-
-En la [web de Digicert][urlDigicert] hay un [wizard][urlDigicert] para armar los parámetros de [keytool][urlKeytool].
+## 2. Observaciones
++ En la [web de Digicert][urlDigicert] hay un [wizard][urlDigicert] para armar los parámetros de [keytool][urlKeytool].
++ A partir de Java 8 el parámetro es *-genkeypair* ya que *genkey* es la versión antigua.
++ Es necesario especificar la validez del keystore y del csr, ya que por defecto dura 90 días.
 
 ## 3. Contenido 
 Para [generar un CSR][urlDigicert], con la [keytool][urlKeytool] hay que seguir estos pasos.
 
-**Paso 1**. Generar la keystore llamada _mikey.jks_ para _dominio.com_. 
+**Paso 1**. Generar el keystore llamado _mikey.jks_ para _dominio.com_ válido por 365 días. 
 En name/lastname, para single-domain ingresar _www\.dominio\.com_ o 
-para wildcard escribir _\*.dominio\.com_. La keystore alamacena una llave 
+para wildcard escribir _\*.dominio\.com_. El keystore almacena una llave 
 pública y una llave privada.
 
 ~~~
-sudo keytool -genkey -alias dominio.com -keyalg RSA -keystore mikey.jks -keysize 2048
+sudo keytool -genkeypair -alias dominio.com -keyalg RSA -validity 365 -keystore mikey.jks -keysize 2048
 ~~~
 
-**Paso 2**. Generar el CSR llamado _dominio.com.csr_. Delimitado por *CERTIFICATE REQUEST*.
+**Paso 2**. Generar el CSR llamado _dominio.com.csr_ válido por 365 días. Delimitado por *CERTIFICATE REQUEST*.
 
 ~~~
-sudo keytool -certreq -alias dominio.com -keystore mikey.jks -file dominio.com.csr
+sudo keytool -certreq -alias dominio.com -validity 365 -keystore mikey.jks -file dominio.com.csr
 ~~~
 
 Para obtener la llave privada hay que continuar con estos pasos.
@@ -47,11 +48,11 @@ sudo keytool -importkeystore -srckeystore mikey.jks -destkeystore mikey.p12 -src
 **Paso 4**. Comprobar el archivo generado usando la passphrase ingresada antes. 
 Debe mostrar tipo _PKCS12_ y el fingerprint.
 ~~~
-sudo keytool -list -keystore mikey.p12 -storepass mipassphrase
+sudo keytool -list -v -keystore mikey.p12 -storepass mipassphrase
 ~~~
 
 **Paso 5**. [Exportar la llave privada][urlTutoExportKey], esto crea _private.key_ 
-desde la keystore [PKCS#12][urlP12Params] sin encriptación (y sin contraseña). 
+desde el keystore [PKCS#12][urlP12Params] sin encriptación (y sin contraseña). 
 Delimitada por *PRIVATE KEY* o *RSA PRIVATE KEY*.
 
 Este paso necesita [Openssl][urlOpenssl] y [algunos parámetros][urlP12Params]. 
