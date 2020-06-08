@@ -66,11 +66,13 @@ Ejemplo de imagen de referencia:
 
 ![alternativo][urlImagen]
 ## Bibliografía:
+Markdown Cheatsheet <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>
+
 Tutorial de markdown <https://markdown.es/sintaxis-markdown/>
 
 Editor de markdown online <https://dillinger.io/>
 
-Cheatsheet <https://joedicastro.com/pages/markdown.html>
+Markdown y Pygments Lexers <https://joedicastro.com/pages/markdown.html>
 
 [//]: # (aqui van las referencias)
 [mienlace]: https://github.com
