@@ -91,7 +91,7 @@ sudo openssl rsa -in private.key -aes256 -out privateAES.pem
 Esto crea la llave *privateAES.pem* delimitada por *RSA PRIVATE KEY*
 
 ## 4. Fuentes
-Doc oficial sobre la keytool <https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html>
+Doc oficial sobre keytool <https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html>
 
 Doc sobre CSR <https://www.dondominio.com/help/es/242/que-es-csr/>
 

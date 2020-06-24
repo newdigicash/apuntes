@@ -2,7 +2,7 @@
 [Tomcat][urlTomcatSsl] permite la configuración de un [certificado SSL][urlTutoSsl]. 
 
 En la [documentación oficial][urlTomcatSsl] hay indicaciones para preparar los certificados y 
-hacer la configuración de la keystore [PKCS12 o JKS][urlTomcatSsl]. 
+hacer la configuración del keystore [PKCS12 o JKS][urlTomcatSsl]. 
 Tomcat usa un [_Connector_][urlTomcatConf] para configurar y tiene [varios parámetros][urlTomcatConf].
 
 Hay un [tutorial][urlTutoSsltomcat] que explica la [configuración del certificado][urlTutoSsltomcat].
@@ -49,7 +49,7 @@ sudo vim /opt/tomcat/latest/conf/server.xml
 en _server.xml_. Es necesario que redireccione al puerto 
 del nuevo conector.
 ~~~
-<Conector port="80" protocol="HTTP/1.1" 
+<Connector port="80" protocol="HTTP/1.1" 
 	connectionTimeout="20000" 
 	redirectPort="443" />
 ~~~
@@ -58,7 +58,7 @@ del nuevo conector.
 en el mismo archivo _server.xml_.
 
 ~~~
-<Conector 
+<Connector 
 	protocol="org.apache.coyote.http11.Http11NioProtocol" 
 	port="443" maxThreads="150" 
 	scheme="https" secure="true" SSLEnabled="true" 
@@ -69,7 +69,7 @@ en el mismo archivo _server.xml_.
 			certificateKeystorePassword="mipassphrase" 
 			type="UNDEFINED" />
 	</SSLHostConfig>
-</Conector>
+</Connector>
 ~~~
 
 **Paso 4**. Reiniciar Tomcat
@@ -171,7 +171,7 @@ el parámetro *certificateKeyPassword* a *Certificate*.
 Acepta peticiones en HTTP/1.1 y [responde en HTTP/2][urlTomcatHttp2].
 
 ~~~
-<Conector 
+<Connector 
 	protocol="org.apache.coyote.http11.Http11NioProtocol" 
 	port="443" maxThreads="150" 
 	scheme="https" secure="true" SSLEnabled="true" 
@@ -182,7 +182,7 @@ Acepta peticiones en HTTP/1.1 y [responde en HTTP/2][urlTomcatHttp2].
 			certificateKeystoreFile="/ruta/mikeystore.p12" 
 			certificateKeystorePassword="mipassphrase" />
 	</SSLHostConfig>
-</Conector>
+</Connector>
 ~~~
 [HTTP/2][urlIntroHttp2] funciona bien con *OpenJDK 11*, aunque parece que 
 [Java 8u252 ya tiene soporte][urlNoticiaJava] para [ALPN][urlWikiAlpn].
