@@ -7,7 +7,7 @@ Listado de comandos más comunes de React Native y librerias para el proyecto.
 @newdigicash
 
 ### Versión
-0.3
+0.5
 
 ## 2. Observaciones
 + Hay que tener en cuenta que algunas librerias como *request@2.88.2* están descontinuadas 
@@ -53,7 +53,8 @@ Cmd | Descripción
 Cmd | Descripción
 :-- | :--
 `npx react-native init nombre-proyecto` | crea un proyecto nuevo
-`npx react-native run-android` | compila y ejecuta en android 5+
+`npx react-native run-android` | compila y ejecuta *debug.apk* en android 5+
+`npx react-native run-android --variant=release` | compila y genera *release.apk*
 
 ### 3.4 Utilitarios para el proyecto
 
@@ -96,6 +97,10 @@ crear, leer, escribir, copiar archivos en Android e iOS. Además permite cargar
 archivos locales a una carpeta remota y viceversa. El [repo oficial][urlRNFileSys] explica la 
 instalación y las funciones de la API con sus parámetros.
 
+#### 3.4.7 Lista desplegable o Acordeon
+Hay un excelente [tutorial para crear un acordeon nativo][urlAccordionTuto] (sin librerias externas) 
+con _FlatList_
+
 ## 4. Fuentes
 Web oficial de RN <https://reactnative.dev>
 
@@ -125,3 +130,4 @@ Android Studio <https://developer.android.com/studio>
 [urlRealmReact]: https://realm.io/docs/javascript/latest
 [urlReamlTuto]: https://aboutreact.com/example-of-realm-database-in-react-native
 [urlRNFileSys]: https://github.com/itinance/react-native-fs
+[urlAccordionTuto]: https://medium.com/@KPS250/creating-an-accordion-in-react-native-f313748b7b46
