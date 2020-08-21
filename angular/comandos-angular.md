@@ -6,11 +6,11 @@ Comandos más usados de Angular
 ### Autor
 @newdigicash
 ### Versión
-0.1
+0.2
 
 ## 2. Observación
 
-Ninguna
+Estos comandos has sido probados en angular 8
 
 ## 3. Contenido 
 
@@ -30,6 +30,27 @@ Cmd | Descripción
 `ng build` | compila el proyecto en _dist_. Con _-prod_ para producción.
 `ng test` | ejecuta pruebas unitarias
 `ng serve` | ejecuta el proyecto. Con _--open_ abre en el browser
+
+### 3.3 Ejemplo de uso
+Crear proyecto con SASS
+~~~
+ng n --style=scss
+~~~
+
+Para compilar para producción
+~~~
+ng b --prod=true --deployUrl=https://dominio.com/ 
+~~~
+
+Agregar un componente al proyecto
+~~~
+ng g component micomponent
+~~~
+
+Agregar un servicio al proyecto
+~~~
+ng g service http
+~~~
 
 ## 4. Fuentes
 Doc oficial <https://angular.io/docs>
