@@ -11,7 +11,7 @@ La explicación de las [diferencias entre fetch+merge y pull][gitPull] está [aq
 ### Autor
 @newdigicash
 ### Versión
-0.5
+0.6
 
 ## 2. Observación
 En proyectos pequeños está bien usar el comando **git pull**. 
@@ -33,6 +33,7 @@ Cmd | Descripción
 `git remote -v` | muestra todos los repos remotos
 `git status` | muestra cambios repo local
 `git add *` | agrega cambios index repo local
+`git mv -f _origen_ _destino_` | mueve archivos y carpetas de \_origen_ a \_destino_
 `git rm -rf dir-local` | borra archivos del index remoto
 `git commit -m "mensaje"` | guarda cambios repo local
 `git push origin master` | guarda cambios en rama repo remoto 
