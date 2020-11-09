@@ -11,7 +11,7 @@ La explicación de las [diferencias entre fetch+merge y pull][gitPull] está [aq
 ### Autor
 @newdigicash
 ### Versión
-0.6
+0.7
 
 ## 2. Observación
 En proyectos pequeños está bien usar el comando **git pull**. 
@@ -42,6 +42,7 @@ Cmd | Descripción
 `git log --all --graph --decorate --oneline` | listado de commits de todas ramas
 `git checkout _rama_` | cambia de rama
 `git checkout -b _rama_` | crea y cambia a la rama nueva
+`git checkout -b _rama_ _existente_` | crea [rama nueva a partir de rama existente][gitOtraBranch]
 `git branch -D _rama_` | borra una rama
 `git merge _rama_` | fusiona \_rama_ a la rama actual
 `git rebase _rama_` | commit a _rama_ copiando de rama actual
@@ -64,3 +65,4 @@ Configuración inicial: <https://git-scm.com/book/en/v2/Getting-Started-First-Ti
 [gitTutorial]: https://rogerdudler.github.io/git-guide/index.es.html
 [gitInteractivo]: https://learngitbranching.js.org/?locale=es_ES
 [gitPull]: https://blog.artegrafico.net/git-fetch-y-git-pull-diferencias-y-formas-de-uso
+[gitOtraBranch]: https://stackoverflow.com/questions/4470523/create-a-branch-in-git-from-another-branch
