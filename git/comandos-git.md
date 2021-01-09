@@ -30,6 +30,7 @@ Cmd | Descripción
 `git fetch`  | descarga cambios remoto en rama oculta **origin/master**
 `git merge origin/master` | fusiona cambios de **origin/master** con rama actual
 `git pull` | descarga el último commit. alias de **git fetch \+ git merge**
+`git pull orgin _rama_` | descarga el último commit de la _rama_
 `git remote -v` | muestra todos los repos remotos
 `git status` | muestra cambios repo local
 `git add *` | agrega cambios index repo local
