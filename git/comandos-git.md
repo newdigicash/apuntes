@@ -11,7 +11,7 @@ La explicación de las [diferencias entre fetch+merge y pull][gitPull] está [aq
 ### Autor
 @newdigicash
 ### Versión
-0.7
+0.8
 
 ## 2. Observación
 En proyectos pequeños está bien usar el comando **git pull**. 
@@ -27,10 +27,10 @@ Cmd | Descripción
 `git config --global user.email correo` | asigna email global
 `git clone _url-publica_` | descarga repo en carpeta actual
 `git clone _url-publica_ _dir-local_` | descarga repo en carpeta nueva
-`git fetch`  | descarga cambios remoto en rama oculta **origin/master**
+`git fetch` | descarga cambios remoto en rama oculta **origin/master**
 `git merge origin/master` | fusiona cambios de **origin/master** con rama actual
 `git pull` | descarga el último commit. alias de **git fetch \+ git merge**
-`git pull orgin _rama_` | descarga el último commit de la _rama_
+`git pull origin _rama_` | descarga el último commit de la _rama_
 `git remote -v` | muestra todos los repos remotos
 `git status` | muestra cambios repo local
 `git add *` | agrega cambios index repo local
@@ -44,8 +44,10 @@ Cmd | Descripción
 `git checkout _rama_` | cambia de rama
 `git checkout -b _rama_` | crea y cambia a la rama nueva
 `git checkout -b _rama_ _existente_` | crea [rama nueva a partir de rama existente][gitOtraBranch]
+`git merge _rama_` | fusiona \_rama_ a la rama actual con todos los commits
+`git merge --squash _rama_` | fusiona la \_rama_ a la actual para un solo commit
+`git remote update origin --prune` | actualiza lista de ramas remotas y borra inexistentes
 `git branch -D _rama_` | borra una rama
-`git merge _rama_` | fusiona \_rama_ a la rama actual
 `git rebase _rama_` | commit a _rama_ copiando de rama actual
 `git checkout HEAD^` | ref. relativa, revisa el commit anterior
 `git branch -f _rama_ HEAD~numero` | mueve la rama n veces atrás
